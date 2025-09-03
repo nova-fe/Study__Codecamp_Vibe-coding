@@ -1,0 +1,232 @@
+/* ======================================== */
+/* Button Base Styles                      */
+/* ======================================== */
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  outline: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ======================================== */
+/* Content Layout                           */
+/* ======================================== */
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ======================================== */
+/* Size Variants (피그마 기준)             */
+/* ======================================== */
+
+.small {
+  width: 88px;
+  height: 32px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+}
+
+.small .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.medium {
+  width: 110px;
+  height: 48px;
+  padding: 12px 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: -0.18px;
+}
+
+.medium .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.large {
+  width: 132px;
+  height: 56px;
+  padding: 16px 12px;
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: -0.20px;
+}
+
+.large .icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* ======================================== */
+/* Variant Styles - Light Theme            */
+/* ======================================== */
+
+/* Primary Button - Light (피그마 검정 버튼) */
+.primary.light {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.primary.light:hover:not(:disabled) {
+  background-color: #333333;
+}
+
+.primary.light:active:not(:disabled) {
+  background-color: #1c1c1c;
+}
+
+/* Secondary Button - Light */
+.secondary.light {
+  background-color: var(--color-interactive-secondary);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-primary);
+}
+
+.secondary.light:hover:not(:disabled) {
+  background-color: var(--color-interactive-secondary-hover);
+}
+
+.secondary.light:active:not(:disabled) {
+  background-color: var(--color-interactive-secondary-active);
+}
+
+/* Tertiary Button - Light */
+.tertiary.light {
+  background-color: transparent;
+  color: var(--color-interactive-primary);
+  border: 1px solid transparent;
+}
+
+.tertiary.light:hover:not(:disabled) {
+  background-color: var(--color-brand-background);
+}
+
+.tertiary.light:active:not(:disabled) {
+  background-color: var(--color-brand-tertiary);
+}
+
+/* ======================================== */
+/* Variant Styles - Dark Theme             */
+/* ======================================== */
+
+/* Primary Button - Dark */
+.primary.dark {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.primary.dark:hover:not(:disabled) {
+  background-color: #f2f2f2;
+}
+
+.primary.dark:active:not(:disabled) {
+  background-color: #e4e4e4;
+}
+
+/* Secondary Button - Dark */
+.secondary.dark {
+  background-color: var(--gray-80);
+  color: var(--gray-white);
+  border: 1px solid var(--gray-60);
+}
+
+.secondary.dark:hover:not(:disabled) {
+  background-color: var(--gray-70);
+}
+
+.secondary.dark:active:not(:disabled) {
+  background-color: var(--gray-60);
+}
+
+/* Tertiary Button - Dark */
+.tertiary.dark {
+  background-color: transparent;
+  color: var(--gray-white);
+  border: 1px solid transparent;
+}
+
+.tertiary.dark:hover:not(:disabled) {
+  background-color: var(--gray-80);
+}
+
+.tertiary.dark:active:not(:disabled) {
+  background-color: var(--gray-70);
+}
+
+/* ======================================== */
+/* Loading State                            */
+/* ======================================== */
+
+.button:has(.loading) .icon,
+.button:has(.loading) .text {
+  opacity: 0.7;
+}
+
+/* ======================================== */
+/* Responsive Design                        */
+/* ======================================== */
+
+@media (max-width: 768px) {
+  .large {
+    height: 48px;
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+  
+  .medium {
+    height: 44px;
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+  
+  .small {
+    height: 36px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
