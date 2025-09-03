@@ -237,13 +237,149 @@
 }
 
 /* ======================================== */
+/* Typography Design System CSS Variables  */
+/* ======================================== */
+
+:root {
+  /* Font Families */
+  --font-family-korean: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-family-english: SUIT Variable, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", sans-serif;
+  --font-family-fallback: -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", sans-serif;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Web Headlines */
+  --typography-web-headline-01-font-size: 48px;
+  --typography-web-headline-01-line-height: 60px;
+  --typography-web-headline-01-font-weight: var(--font-weight-semibold);
+  --typography-web-headline-01-font-family: var(--font-family-korean);
+
+  --typography-web-headline-02-font-size: 36px;
+  --typography-web-headline-02-line-height: 48px;
+  --typography-web-headline-02-font-weight: var(--font-weight-semibold);
+  --typography-web-headline-02-font-family: var(--font-family-korean);
+
+  --typography-web-headline-03-font-size: 28px;
+  --typography-web-headline-03-line-height: 36px;
+  --typography-web-headline-03-font-weight: var(--font-weight-semibold);
+  --typography-web-headline-03-font-family: var(--font-family-korean);
+
+  /* Headlines */
+  --typography-headline-01-font-size: 24px;
+  --typography-headline-01-line-height: 32px;
+  --typography-headline-01-font-weight: var(--font-weight-bold);
+  --typography-headline-01-font-family: var(--font-family-korean);
+
+  --typography-headline-02-font-size: 22px;
+  --typography-headline-02-line-height: 30px;
+  --typography-headline-02-font-weight: var(--font-weight-extrabold);
+  --typography-headline-02-font-family: var(--font-family-korean);
+
+  --typography-headline-03-font-size: 20px;
+  --typography-headline-03-line-height: 28px;
+  --typography-headline-03-font-weight: var(--font-weight-bold);
+  --typography-headline-03-font-family: var(--font-family-korean);
+
+  /* Titles */
+  --typography-title-01-font-size: 18px;
+  --typography-title-01-line-height: 24px;
+  --typography-title-01-font-weight: var(--font-weight-bold);
+  --typography-title-01-font-family: var(--font-family-korean);
+
+  --typography-title-02-font-size: 16px;
+  --typography-title-02-line-height: 22px;
+  --typography-title-02-font-weight: var(--font-weight-bold);
+  --typography-title-02-font-family: var(--font-family-korean);
+
+  --typography-title-03-font-size: 14px;
+  --typography-title-03-line-height: 20px;
+  --typography-title-03-font-weight: var(--font-weight-bold);
+  --typography-title-03-font-family: var(--font-family-korean);
+
+  --typography-subtitle-01-font-size: 14px;
+  --typography-subtitle-01-line-height: 22px;
+  --typography-subtitle-01-font-weight: var(--font-weight-semibold);
+  --typography-subtitle-01-font-family: var(--font-family-korean);
+
+  --typography-subtitle-02-font-size: 12px;
+  --typography-subtitle-02-line-height: 18px;
+  --typography-subtitle-02-font-weight: var(--font-weight-semibold);
+  --typography-subtitle-02-font-family: var(--font-family-korean);
+
+  /* Body Text */
+  --typography-body-01-font-size: 16px;
+  --typography-body-01-line-height: 24px;
+  --typography-body-01-font-weight: var(--font-weight-medium);
+  --typography-body-01-font-family: var(--font-family-korean);
+
+  --typography-body-02-m-font-size: 14px;
+  --typography-body-02-m-line-height: 22px;
+  --typography-body-02-m-font-weight: var(--font-weight-medium);
+  --typography-body-02-m-font-family: var(--font-family-korean);
+
+  --typography-body-03-font-size: 12px;
+  --typography-body-03-line-height: 18px;
+  --typography-body-03-font-weight: var(--font-weight-medium);
+  --typography-body-03-font-family: var(--font-family-korean);
+
+  --typography-body-01-regular-font-size: 16px;
+  --typography-body-01-regular-line-height: 22px;
+  --typography-body-01-regular-font-weight: var(--font-weight-regular);
+  --typography-body-01-regular-font-family: var(--font-family-korean);
+
+  --typography-body-02-s-font-size: 14px;
+  --typography-body-02-s-line-height: 20px;
+  --typography-body-02-s-font-weight: var(--font-weight-regular);
+  --typography-body-02-s-font-family: var(--font-family-korean);
+
+  --typography-body-03-regular-font-size: 12px;
+  --typography-body-03-regular-line-height: 16px;
+  --typography-body-03-regular-font-weight: var(--font-weight-regular);
+  --typography-body-03-regular-font-family: var(--font-family-korean);
+
+  /* Captions */
+  --typography-caption-01-font-size: 12px;
+  --typography-caption-01-line-height: 14px;
+  --typography-caption-01-font-weight: var(--font-weight-semibold);
+  --typography-caption-01-font-family: var(--font-family-korean);
+
+  --typography-caption-02-m-font-size: 10px;
+  --typography-caption-02-m-line-height: 12px;
+  --typography-caption-02-m-font-weight: var(--font-weight-semibold);
+  --typography-caption-02-m-font-family: var(--font-family-korean);
+
+  --typography-caption-02-s-font-size: 10px;
+  --typography-caption-02-s-line-height: 12px;
+  --typography-caption-02-s-font-weight: var(--font-weight-medium);
+  --typography-caption-02-s-font-family: var(--font-family-korean);
+
+  --typography-caption-03-font-size: 8px;
+  --typography-caption-03-line-height: 10px;
+  --typography-caption-03-font-weight: var(--font-weight-semibold);
+  --typography-caption-03-font-family: var(--font-family-korean);
+}
+
+/* Mobile specific typography variables */
+@media (max-width: 768px) {
+  :root {
+    /* Mobile에서 다른 값이 필요한 경우 여기에 추가 */
+    /* 현재는 모바일과 데스크톱이 동일한 값을 사용 */
+  }
+}
+
+/* ======================================== */
 /* Base Styles                             */
 /* ======================================== */
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-korean);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -312,5 +448,154 @@ body {
   }
   .bg-gradient-skeleton {
     background: var(--gradient-skeleton);
+  }
+
+  /* Typography utility classes */
+  
+  /* Web Headlines */
+  .text-web-headline-01 {
+    font-size: var(--typography-web-headline-01-font-size);
+    line-height: var(--typography-web-headline-01-line-height);
+    font-weight: var(--typography-web-headline-01-font-weight);
+    font-family: var(--typography-web-headline-01-font-family);
+  }
+  .text-web-headline-02 {
+    font-size: var(--typography-web-headline-02-font-size);
+    line-height: var(--typography-web-headline-02-line-height);
+    font-weight: var(--typography-web-headline-02-font-weight);
+    font-family: var(--typography-web-headline-02-font-family);
+  }
+  .text-web-headline-03 {
+    font-size: var(--typography-web-headline-03-font-size);
+    line-height: var(--typography-web-headline-03-line-height);
+    font-weight: var(--typography-web-headline-03-font-weight);
+    font-family: var(--typography-web-headline-03-font-family);
+  }
+
+  /* Headlines */
+  .text-headline-01 {
+    font-size: var(--typography-headline-01-font-size);
+    line-height: var(--typography-headline-01-line-height);
+    font-weight: var(--typography-headline-01-font-weight);
+    font-family: var(--typography-headline-01-font-family);
+  }
+  .text-headline-02 {
+    font-size: var(--typography-headline-02-font-size);
+    line-height: var(--typography-headline-02-line-height);
+    font-weight: var(--typography-headline-02-font-weight);
+    font-family: var(--typography-headline-02-font-family);
+  }
+  .text-headline-03 {
+    font-size: var(--typography-headline-03-font-size);
+    line-height: var(--typography-headline-03-line-height);
+    font-weight: var(--typography-headline-03-font-weight);
+    font-family: var(--typography-headline-03-font-family);
+  }
+
+  /* Titles */
+  .text-title-01 {
+    font-size: var(--typography-title-01-font-size);
+    line-height: var(--typography-title-01-line-height);
+    font-weight: var(--typography-title-01-font-weight);
+    font-family: var(--typography-title-01-font-family);
+  }
+  .text-title-02 {
+    font-size: var(--typography-title-02-font-size);
+    line-height: var(--typography-title-02-line-height);
+    font-weight: var(--typography-title-02-font-weight);
+    font-family: var(--typography-title-02-font-family);
+  }
+  .text-title-03 {
+    font-size: var(--typography-title-03-font-size);
+    line-height: var(--typography-title-03-line-height);
+    font-weight: var(--typography-title-03-font-weight);
+    font-family: var(--typography-title-03-font-family);
+  }
+  .text-subtitle-01 {
+    font-size: var(--typography-subtitle-01-font-size);
+    line-height: var(--typography-subtitle-01-line-height);
+    font-weight: var(--typography-subtitle-01-font-weight);
+    font-family: var(--typography-subtitle-01-font-family);
+  }
+  .text-subtitle-02 {
+    font-size: var(--typography-subtitle-02-font-size);
+    line-height: var(--typography-subtitle-02-line-height);
+    font-weight: var(--typography-subtitle-02-font-weight);
+    font-family: var(--typography-subtitle-02-font-family);
+  }
+
+  /* Body Text */
+  .text-body-01 {
+    font-size: var(--typography-body-01-font-size);
+    line-height: var(--typography-body-01-line-height);
+    font-weight: var(--typography-body-01-font-weight);
+    font-family: var(--typography-body-01-font-family);
+  }
+  .text-body-02-m {
+    font-size: var(--typography-body-02-m-font-size);
+    line-height: var(--typography-body-02-m-line-height);
+    font-weight: var(--typography-body-02-m-font-weight);
+    font-family: var(--typography-body-02-m-font-family);
+  }
+  .text-body-03 {
+    font-size: var(--typography-body-03-font-size);
+    line-height: var(--typography-body-03-line-height);
+    font-weight: var(--typography-body-03-font-weight);
+    font-family: var(--typography-body-03-font-family);
+  }
+  .text-body-01-regular {
+    font-size: var(--typography-body-01-regular-font-size);
+    line-height: var(--typography-body-01-regular-line-height);
+    font-weight: var(--typography-body-01-regular-font-weight);
+    font-family: var(--typography-body-01-regular-font-family);
+  }
+  .text-body-02-s {
+    font-size: var(--typography-body-02-s-font-size);
+    line-height: var(--typography-body-02-s-line-height);
+    font-weight: var(--typography-body-02-s-font-weight);
+    font-family: var(--typography-body-02-s-font-family);
+  }
+  .text-body-03-regular {
+    font-size: var(--typography-body-03-regular-font-size);
+    line-height: var(--typography-body-03-regular-line-height);
+    font-weight: var(--typography-body-03-regular-font-weight);
+    font-family: var(--typography-body-03-regular-font-family);
+  }
+
+  /* Captions */
+  .text-caption-01 {
+    font-size: var(--typography-caption-01-font-size);
+    line-height: var(--typography-caption-01-line-height);
+    font-weight: var(--typography-caption-01-font-weight);
+    font-family: var(--typography-caption-01-font-family);
+  }
+  .text-caption-02-m {
+    font-size: var(--typography-caption-02-m-font-size);
+    line-height: var(--typography-caption-02-m-line-height);
+    font-weight: var(--typography-caption-02-m-font-weight);
+    font-family: var(--typography-caption-02-m-font-family);
+  }
+  .text-caption-02-s {
+    font-size: var(--typography-caption-02-s-font-size);
+    line-height: var(--typography-caption-02-s-line-height);
+    font-weight: var(--typography-caption-02-s-font-weight);
+    font-family: var(--typography-caption-02-s-font-family);
+  }
+  .text-caption-03 {
+    font-size: var(--typography-caption-03-font-size);
+    line-height: var(--typography-caption-03-line-height);
+    font-weight: var(--typography-caption-03-font-weight);
+    font-family: var(--typography-caption-03-font-family);
+  }
+
+  /* Font family utilities */
+  .font-korean {
+    font-family: var(--font-family-korean);
+  }
+  .font-english {
+    font-family: var(--font-family-english);
+  }
+  .font-fallback {
+    font-family: var(--font-family-fallback);
   }
 }
