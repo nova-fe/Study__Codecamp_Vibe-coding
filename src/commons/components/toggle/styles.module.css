@@ -1,0 +1,280 @@
+/* ======================================== */
+/* Toggle Base Styles                      */
+/* ======================================== */
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggleWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+.toggle:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.toggle.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ======================================== */
+/* Slider and Knob Layout                  */
+/* ======================================== */
+
+.slider {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.knob {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================================== */
+/* Size Variants (피그마 기준)              */
+/* ======================================== */
+
+/* Small Toggle */
+.small {
+  width: 40px;
+  height: 24px;
+  border-radius: 12px;
+}
+
+.small .knob {
+  width: 20px;
+  height: 20px;
+  left: 2px;
+}
+
+.small.checked .knob {
+  transform: translateY(-50%) translateX(16px);
+}
+
+/* Medium Toggle */
+.medium {
+  width: 48px;
+  height: 28px;
+  border-radius: 14px;
+}
+
+.medium .knob {
+  width: 24px;
+  height: 24px;
+  left: 2px;
+}
+
+.medium.checked .knob {
+  transform: translateY(-50%) translateX(20px);
+}
+
+/* Large Toggle */
+.large {
+  width: 58px;
+  height: 32px;
+  border-radius: 16px;
+}
+
+.large .knob {
+  width: 28px;
+  height: 28px;
+  left: 2px;
+}
+
+.large.checked .knob {
+  transform: translateY(-50%) translateX(26px);
+}
+
+/* ======================================== */
+/* Label Styles                             */
+/* ======================================== */
+
+.label {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle.disabled + .label {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ======================================== */
+/* Variant Styles - Light Theme            */
+/* ======================================== */
+
+/* Primary Toggle - Light */
+.primary.light.unchecked {
+  background-color: #e4e4e4;
+}
+
+.primary.light.checked {
+  background-color: #3ad84a;
+}
+
+.primary.light:hover:not(.disabled) {
+  opacity: 0.8;
+}
+
+.primary.light:active:not(.disabled) {
+  opacity: 0.6;
+}
+
+/* Secondary Toggle - Light */
+.secondary.light.unchecked {
+  background-color: var(--color-interactive-secondary);
+  border-color: var(--color-border-primary);
+}
+
+.secondary.light.checked {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+
+.secondary.light:hover:not(.disabled) {
+  opacity: 0.8;
+}
+
+.secondary.light:active:not(.disabled) {
+  opacity: 0.6;
+}
+
+/* Tertiary Toggle - Light */
+.tertiary.light.unchecked {
+  background-color: var(--color-border-secondary);
+  border-color: var(--color-border-primary);
+}
+
+.tertiary.light.checked {
+  background-color: var(--color-brand-secondary);
+  border-color: var(--color-brand-secondary);
+}
+
+.tertiary.light:hover:not(.disabled) {
+  opacity: 0.8;
+}
+
+.tertiary.light:active:not(.disabled) {
+  opacity: 0.6;
+}
+
+/* ======================================== */
+/* Variant Styles - Dark Theme             */
+/* ======================================== */
+
+/* Primary Toggle - Dark */
+.primary.dark.unchecked {
+  background-color: #777777;
+}
+
+.primary.dark.checked {
+  background-color: #3ad84a;
+}
+
+.primary.dark:hover:not(.disabled) {
+  opacity: 0.8;
+}
+
+.primary.dark:active:not(.disabled) {
+  opacity: 0.6;
+}
+
+/* Secondary Toggle - Dark */
+.secondary.dark.unchecked {
+  background-color: var(--gray-80);
+  border-color: var(--gray-60);
+}
+
+.secondary.dark.checked {
+  background-color: var(--color-brand-primary);
+  border-color: var(--color-brand-primary);
+}
+
+.secondary.dark:hover:not(.disabled) {
+  opacity: 0.8;
+}
+
+.secondary.dark:active:not(.disabled) {
+  opacity: 0.6;
+}
+
+/* Tertiary Toggle - Dark */
+.tertiary.dark.unchecked {
+  background-color: var(--gray-70);
+  border-color: var(--gray-60);
+}
+
+.tertiary.dark.checked {
+  background-color: var(--color-brand-secondary);
+  border-color: var(--color-brand-secondary);
+}
+
+.tertiary.dark:hover:not(.disabled) {
+  opacity: 0.8;
+}
+
+.tertiary.dark:active:not(.disabled) {
+  opacity: 0.6;
+}
+
+/* ======================================== */
+/* Focus and Accessibility Styles          */
+/* ======================================== */
+
+.toggle:focus-within {
+  outline: 2px solid var(--color-border-focus, #3A5CF3);
+  outline-offset: 2px;
+}
+
+.input:focus-visible + .toggle {
+  outline: 2px solid var(--color-border-focus, #3A5CF3);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .toggle {
+    border-width: 2px;
+  }
+  
+  .toggle.unchecked {
+    border-color: currentColor;
+  }
+}
