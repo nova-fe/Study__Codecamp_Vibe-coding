@@ -1,0 +1,328 @@
+/* ======================================== */
+/* Pagination Base Styles                  */
+/* ======================================== */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* ======================================== */
+/* Navigation Button Styles               */
+/* ======================================== */
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.navButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.navButton.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.navButton:hover:not(.disabled) {
+  opacity: 0.7;
+}
+
+/* ======================================== */
+/* Page Container Styles                   */
+/* ======================================== */
+
+.pageContainer {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ======================================== */
+/* Page Button Base Styles                 */
+/* ======================================== */
+
+.pageButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.pageButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+.pageText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/* ======================================== */
+/* Size Variants (피그마 기준)             */
+/* ======================================== */
+
+/* Small Size */
+.small .navButton {
+  width: 20px;
+  height: 20px;
+}
+
+.small .pageButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
+.small .pageText {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.14px;
+}
+
+/* Medium Size (피그마 디자인) */
+.medium .navButton {
+  width: 24px;
+  height: 24px;
+}
+
+.medium .pageButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.medium .pageText {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: -0.16px;
+}
+
+.medium .pageButton.active .pageText {
+  font-weight: 500;
+}
+
+/* Large Size */
+.large .navButton {
+  width: 28px;
+  height: 28px;
+}
+
+.large .pageButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.large .pageText {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: -0.18px;
+}
+
+/* ======================================== */
+/* Variant Styles - Light Theme            */
+/* ======================================== */
+
+/* Primary Variant - Light (피그마 디자인) */
+.primary.light .pageButton {
+  background-color: #ffffff;
+  color: #777777;
+}
+
+.primary.light .pageButton.active {
+  background-color: #f2f2f2;
+  color: #000000;
+}
+
+.primary.light .pageButton:hover:not(.active) {
+  background-color: #f8f8f8;
+  color: #333333;
+}
+
+.primary.light .pageButton:active:not(.active) {
+  background-color: #f0f0f0;
+}
+
+/* Secondary Variant - Light */
+.secondary.light .pageButton {
+  background-color: var(--color-background-secondary);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-secondary);
+}
+
+.secondary.light .pageButton.active {
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-brand-primary);
+}
+
+.secondary.light .pageButton:hover:not(.active) {
+  background-color: var(--color-background-tertiary);
+  border-color: var(--color-border-primary);
+}
+
+/* Tertiary Variant - Light */
+.tertiary.light .pageButton {
+  background-color: transparent;
+  color: var(--color-text-primary);
+}
+
+.tertiary.light .pageButton.active {
+  background-color: var(--color-brand-background);
+  color: var(--color-brand-primary);
+}
+
+.tertiary.light .pageButton:hover:not(.active) {
+  background-color: var(--color-background-secondary);
+}
+
+/* ======================================== */
+/* Variant Styles - Dark Theme             */
+/* ======================================== */
+
+/* Primary Variant - Dark */
+.primary.dark .pageButton {
+  background-color: var(--gray-80);
+  color: var(--gray-40);
+}
+
+.primary.dark .pageButton.active {
+  background-color: var(--gray-70);
+  color: var(--gray-white);
+}
+
+.primary.dark .pageButton:hover:not(.active) {
+  background-color: var(--gray-70);
+  color: var(--gray-30);
+}
+
+/* Secondary Variant - Dark */
+.secondary.dark .pageButton {
+  background-color: var(--gray-90);
+  color: var(--gray-50);
+  border: 1px solid var(--gray-70);
+}
+
+.secondary.dark .pageButton.active {
+  background-color: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-brand-primary);
+}
+
+.secondary.dark .pageButton:hover:not(.active) {
+  background-color: var(--gray-80);
+  border-color: var(--gray-60);
+}
+
+/* Tertiary Variant - Dark */
+.tertiary.dark .pageButton {
+  background-color: transparent;
+  color: var(--gray-white);
+}
+
+.tertiary.dark .pageButton.active {
+  background-color: var(--color-brand-background);
+  color: var(--color-brand-primary);
+}
+
+.tertiary.dark .pageButton:hover:not(.active) {
+  background-color: var(--gray-90);
+}
+
+/* ======================================== */
+/* Responsive Design                        */
+/* ======================================== */
+
+@media (max-width: 768px) {
+  .large .pageButton {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .large .pageText {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .medium .pageButton {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .medium .pageText {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .small .pageButton {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .small .pageText {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .pagination {
+    gap: 4px;
+  }
+}
+
+/* ======================================== */
+/* Accessibility Improvements              */
+/* ======================================== */
+
+.pageButton:focus,
+.navButton:focus {
+  z-index: 1;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .pageButton {
+    border: 1px solid currentColor;
+  }
+  
+  .pageButton.active {
+    background-color: currentColor;
+    color: var(--color-background-primary);
+  }
+}
