@@ -1,0 +1,283 @@
+/* ========================================
+ * Input Component Styles
+ * Figma Reference Node ID: 3:1207
+ * ========================================
+ */
+
+/* ========================================
+ * Base Container Styles (Flexbox Only)
+ * ========================================
+ */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ========================================
+ * Label Styles
+ * ========================================
+ */
+.label {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.4;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* Label Size Variants */
+.label--small {
+  font-size: 12px;
+}
+
+.label--medium {
+  font-size: 14px;
+}
+
+.label--large {
+  font-size: 16px;
+}
+
+/* Label Theme Variants */
+.label--light {
+  color: #000000;
+}
+
+.label--dark {
+  color: #ffffff;
+}
+
+.label--disabled {
+  opacity: 0.6;
+}
+
+/* ========================================
+ * Input Base Styles (Figma Exact Match)
+ * ========================================
+ */
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #d4d3d3;
+  border-radius: 8px;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  background-color: #ffffff;
+  color: #000000;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #ababab;
+  opacity: 1;
+}
+
+.input:focus {
+  border-color: #3a5cf3;
+}
+
+/* ========================================
+ * Input Size Variants
+ * ========================================
+ */
+.input--small {
+  height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.input--medium {
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+.input--large {
+  height: 56px;
+  padding: 0 20px;
+  font-size: 18px;
+}
+
+/* ========================================
+ * Input Theme Variants
+ * ========================================
+ */
+
+/* Light Theme (Figma Default) */
+.input--light {
+  background-color: #ffffff;
+  border-color: #d4d3d3;
+  color: #000000;
+}
+
+.input--light::placeholder {
+  color: #ababab;
+}
+
+.input--light:focus {
+  border-color: #3a5cf3;
+}
+
+/* Dark Theme */
+.input--dark {
+  background-color: #1c1c1c;
+  border-color: #5f5f5f;
+  color: #ffffff;
+}
+
+.input--dark::placeholder {
+  color: #777777;
+}
+
+.input--dark:focus {
+  border-color: #6da5fa;
+}
+
+/* ========================================
+ * Input Variant Styles
+ * ========================================
+ */
+
+/* Primary Variant - Figma Default */
+.input--primary.input--light {
+  background-color: #ffffff;
+  border-color: #d4d3d3;
+}
+
+.input--primary.input--dark {
+  background-color: #1c1c1c;
+  border-color: #5f5f5f;
+}
+
+/* Secondary Variant */
+.input--secondary.input--light {
+  background-color: #f8f8fa;
+  border-color: #edeef2;
+}
+
+.input--secondary.input--dark {
+  background-color: #333333;
+  border-color: #5f5f5f;
+}
+
+/* Tertiary Variant - Minimal */
+.input--tertiary {
+  border: none;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.input--tertiary.input--light {
+  background-color: transparent;
+  border-bottom-color: #d4d3d3;
+}
+
+.input--tertiary.input--dark {
+  background-color: transparent;
+  border-bottom-color: #5f5f5f;
+}
+
+/* ========================================
+ * Input State Styles
+ * ========================================
+ */
+
+/* Error State */
+.input--error.input--light {
+  border-color: #f03851;
+}
+
+.input--error.input--dark {
+  border-color: #f4677a;
+}
+
+/* Success State */
+.input--success.input--light {
+  border-color: #12b75f;
+}
+
+.input--success.input--dark {
+  border-color: #15d66f;
+}
+
+/* Disabled State */
+.input--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.input--disabled.input--light {
+  background-color: #f2f2f2;
+  border-color: #d4d3d3;
+  color: #c7c7c7;
+}
+
+.input--disabled.input--dark {
+  background-color: #333333;
+  border-color: #5f5f5f;
+  color: #5f5f5f;
+}
+
+/* ========================================
+ * Message Styles
+ * ========================================
+ */
+.message {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Message Size Variants */
+.message--small {
+  font-size: 11px;
+}
+
+.message--medium {
+  font-size: 12px;
+}
+
+.message--large {
+  font-size: 14px;
+}
+
+/* Message Theme Variants */
+.message--light {
+  color: #777777;
+}
+
+.message--dark {
+  color: #ababab;
+}
+
+/* Message State Variants */
+.message--error.message--light {
+  color: #f03851;
+}
+
+.message--error.message--dark {
+  color: #f4677a;
+}
+
+.message--success.message--light {
+  color: #12b75f;
+}
+
+.message--success.message--dark {
+  color: #15d66f;
+}
