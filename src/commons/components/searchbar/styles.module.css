@@ -1,0 +1,347 @@
+/* ========================================
+   Searchbar Component Styles
+   ======================================== */
+
+/* Base Wrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+/* Base Container */
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-radius: 100px;
+  border: 1px solid;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.container:focus-within {
+  outline: none;
+}
+
+/* Search Icon */
+.searchIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.searchIcon:hover:not(:disabled) {
+  opacity: 0.7;
+}
+
+.searchIcon:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Input Field */
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.16px;
+}
+
+.input::placeholder {
+  color: #ababab;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+/* Clear Button */
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+}
+
+.clearButton:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.clearButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Icon Image */
+.iconImage {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+/* Helper Text */
+.helperText {
+  font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  padding-left: 16px;
+}
+
+.helperTextError {
+  color: #f03851;
+}
+
+/* ========================================
+   Size Variants
+   ======================================== */
+
+/* Small Size */
+.size-small {
+  height: 36px;
+  padding: 0 12px;
+  gap: 6px;
+}
+
+.input-size-small {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Medium Size (기본 피그마 디자인) */
+.size-medium {
+  height: 48px;
+  padding: 0 16px;
+  gap: 8px;
+}
+
+.input-size-medium {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Large Size */
+.size-large {
+  height: 56px;
+  padding: 0 20px;
+  gap: 12px;
+}
+
+.input-size-large {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* ========================================
+   Variant Styles - Light Theme
+   ======================================== */
+
+/* Primary Variant - Light */
+.variant-primary.theme-light {
+  border-color: #c7c7c7;
+  background-color: #ffffff;
+}
+
+.variant-primary.theme-light:focus-within {
+  border-color: #3a5cf3;
+  box-shadow: 0 0 0 2px rgba(58, 92, 243, 0.1);
+}
+
+.variant-primary.theme-light.error {
+  border-color: #f03851;
+}
+
+.variant-primary.theme-light.error:focus-within {
+  border-color: #f03851;
+  box-shadow: 0 0 0 2px rgba(240, 56, 81, 0.1);
+}
+
+.input-variant-primary.input-theme-light {
+  color: #000000;
+}
+
+.input-variant-primary.input-theme-light::placeholder {
+  color: #ababab;
+}
+
+/* Secondary Variant - Light */
+.variant-secondary.theme-light {
+  border-color: #e4e4e4;
+  background-color: #f2f2f2;
+}
+
+.variant-secondary.theme-light:focus-within {
+  border-color: #3a5cf3;
+  background-color: #ffffff;
+}
+
+.input-variant-secondary.input-theme-light {
+  color: #000000;
+}
+
+.input-variant-secondary.input-theme-light::placeholder {
+  color: #919191;
+}
+
+/* Tertiary Variant - Light */
+.variant-tertiary.theme-light {
+  border-color: transparent;
+  background-color: transparent;
+  border-bottom: 1px solid #c7c7c7;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.variant-tertiary.theme-light:focus-within {
+  border-bottom-color: #3a5cf3;
+}
+
+.input-variant-tertiary.input-theme-light {
+  color: #000000;
+}
+
+.input-variant-tertiary.input-theme-light::placeholder {
+  color: #ababab;
+}
+
+/* ========================================
+   Variant Styles - Dark Theme
+   ======================================== */
+
+/* Primary Variant - Dark */
+.variant-primary.theme-dark {
+  border-color: #5f5f5f;
+  background-color: #1c1c1c;
+}
+
+.variant-primary.theme-dark:focus-within {
+  border-color: #6da5fa;
+  box-shadow: 0 0 0 2px rgba(109, 165, 250, 0.1);
+}
+
+.variant-primary.theme-dark.error {
+  border-color: #f4677a;
+}
+
+.variant-primary.theme-dark.error:focus-within {
+  border-color: #f4677a;
+  box-shadow: 0 0 0 2px rgba(244, 103, 122, 0.1);
+}
+
+.input-variant-primary.input-theme-dark {
+  color: #ffffff;
+}
+
+.input-variant-primary.input-theme-dark::placeholder {
+  color: #777777;
+}
+
+/* Secondary Variant - Dark */
+.variant-secondary.theme-dark {
+  border-color: #333333;
+  background-color: #333333;
+}
+
+.variant-secondary.theme-dark:focus-within {
+  border-color: #6da5fa;
+  background-color: #1c1c1c;
+}
+
+.input-variant-secondary.input-theme-dark {
+  color: #ffffff;
+}
+
+.input-variant-secondary.input-theme-dark::placeholder {
+  color: #919191;
+}
+
+/* Tertiary Variant - Dark */
+.variant-tertiary.theme-dark {
+  border-color: transparent;
+  background-color: transparent;
+  border-bottom: 1px solid #5f5f5f;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.variant-tertiary.theme-dark:focus-within {
+  border-bottom-color: #6da5fa;
+}
+
+.input-variant-tertiary.input-theme-dark {
+  color: #ffffff;
+}
+
+.input-variant-tertiary.input-theme-dark::placeholder {
+  color: #777777;
+}
+
+/* ========================================
+   State Styles
+   ======================================== */
+
+/* Disabled State */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled * {
+  cursor: not-allowed;
+}
+
+/* Helper Text Styles */
+.helperText {
+  color: #777777;
+}
+
+.theme-light .helperText {
+  color: #777777;
+}
+
+.theme-dark .helperText {
+  color: #ababab;
+}
+
+.helperTextError {
+  color: #f03851;
+}
+
+.theme-dark .helperTextError {
+  color: #f4677a;
+}
+
+/* ========================================
+   Dark Theme Icon Adjustments
+   ======================================== */
+
+.theme-dark .iconImage {
+  filter: invert(1) brightness(0.8);
+}
+
+.theme-dark .clearButton:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
