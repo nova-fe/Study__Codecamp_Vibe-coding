@@ -38,15 +38,39 @@ function getButtonClasses(
 }
 
 // 기본 플러스 아이콘 컴포넌트 - public/icons 파일 활용
-function PlusIcon({ size = 24 }: { size?: number }) {
+function PlusIcon({ size = 24, shouldInvert = true }: { size?: number; shouldInvert?: boolean }) {
   return (
     <Image
       src="/icons/plus_outline_light_m.svg"
       alt="plus icon"
       width={size}
       height={size}
-      style={{ filter: 'invert(1)' }} // 흰색으로 만들기 위해 invert 적용
+      style={{ filter: shouldInvert ? 'invert(1)' : 'none' }} // 흰색으로 만들기 위해 invert 적용
     />
+  );
+}
+
+// 아이콘에 흰색 필터를 적용하는 래퍼 컴포넌트
+function IconWrapper({ 
+  children, 
+  variant, 
+  theme, 
+  disabled 
+}: { 
+  children: React.ReactNode; 
+  variant: ButtonVariant; 
+  theme: ButtonTheme; 
+  disabled?: boolean;
+}) {
+  // Primary 버튼이거나 disabled 상태일 때 흰색 아이콘 사용
+  const shouldInvertIcon = (variant === 'primary' && theme === 'light') || 
+                          (variant === 'primary' && theme === 'dark' && disabled) ||
+                          disabled;
+
+  return (
+    <div style={{ filter: shouldInvertIcon ? 'invert(1)' : 'none' }}>
+      {children}
+    </div>
   );
 }
 
@@ -67,7 +91,12 @@ export default function Button({
   const isDisabled = disabled || loading;
   
   // 기본 아이콘 또는 커스텀 아이콘 결정
-  const displayIcon = showDefaultIcon ? <PlusIcon /> : icon;
+  const displayIcon = showDefaultIcon ? 
+    <PlusIcon 
+      size={size === 'small' ? 16 : size === 'medium' ? 24 : 28} 
+      shouldInvert={(variant === 'primary') || isDisabled}
+    /> : 
+    icon;
 
   return (
     <button
@@ -77,7 +106,11 @@ export default function Button({
     >
       <div className={styles.content}>
         {displayIcon && iconPosition === 'left' && (
-          <span className={styles.icon}>{displayIcon}</span>
+          <span className={styles.icon}>
+            <IconWrapper variant={variant} theme={theme} disabled={isDisabled}>
+              {displayIcon}
+            </IconWrapper>
+          </span>
         )}
         
         <span className={styles.text}>
@@ -85,7 +118,11 @@ export default function Button({
         </span>
         
         {displayIcon && iconPosition === 'right' && (
-          <span className={styles.icon}>{displayIcon}</span>
+          <span className={styles.icon}>
+            <IconWrapper variant={variant} theme={theme} disabled={isDisabled}>
+              {displayIcon}
+            </IconWrapper>
+          </span>
         )}
       </div>
     </button>
