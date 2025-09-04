@@ -53,9 +53,7 @@
 .pageContainer {
   display: flex;
   align-items: center;
-  gap: 0;
   border-radius: 8px;
-  overflow: hidden;
 }
 
 /* ======================================== */
@@ -96,9 +94,13 @@
 /* ======================================== */
 
 /* Small Size */
+.small .pageContainer {
+  gap: 10px;
+}
+
 .small .navButton {
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
 }
 
 .small .pageButton {
@@ -110,14 +112,22 @@
 .small .pageText {
   font-size: 14px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.14px;
 }
 
+.small .pageButton.active .pageText {
+  font-weight: 500;
+}
+
 /* Medium Size (피그마 디자인) */
+.medium .pageContainer {
+  gap: 14px;
+}
+
 .medium .navButton {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
 }
 
 .medium .pageButton {
@@ -129,7 +139,7 @@
 .medium .pageText {
   font-size: 16px;
   line-height: 24px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.16px;
 }
 
@@ -138,9 +148,13 @@
 }
 
 /* Large Size */
+.large .pageContainer {
+  gap: 18px;
+}
+
 .large .navButton {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
 }
 
 .large .pageButton {
@@ -152,8 +166,12 @@
 .large .pageText {
   font-size: 18px;
   line-height: 26px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: -0.18px;
+}
+
+.large .pageButton.active .pageText {
+  font-weight: 600;
 }
 
 /* ======================================== */

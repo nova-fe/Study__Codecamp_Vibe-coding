@@ -38,43 +38,46 @@ function getPaginationClasses(
   return classes.join(' ');
 }
 
-// 페이지 범위 계산 함수
-function getPageRange(currentPage: number, totalPages: number, maxVisible: number): number[] {
-  if (totalPages <= maxVisible) {
-    return Array.from({ length: totalPages }, (_, i) => i + 1);
-  }
+// 페이지 그룹 계산 함수 (5페이지 단위)
+function getPageGroup(currentPage: number, maxVisible: number = 5): { start: number; end: number } {
+  const currentGroup = Math.ceil(currentPage / maxVisible);
+  const start = (currentGroup - 1) * maxVisible + 1;
+  const end = currentGroup * maxVisible;
+  
+  return { start, end };
+}
 
-  const halfVisible = Math.floor(maxVisible / 2);
-  let startPage = Math.max(1, currentPage - halfVisible);
-  const endPage = Math.min(totalPages, startPage + maxVisible - 1);
-
-  // startPage 조정
-  if (endPage - startPage + 1 < maxVisible) {
-    startPage = Math.max(1, endPage - maxVisible + 1);
-  }
-
-  return Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+// 페이지 범위 계산 함수 (5페이지 단위로 표시)
+function getPageRange(currentPage: number, totalPages: number, maxVisible: number = 5): number[] {
+  const { start, end } = getPageGroup(currentPage, maxVisible);
+  const actualEnd = Math.min(end, totalPages);
+  
+  return Array.from({ length: actualEnd - start + 1 }, (_, i) => start + i);
 }
 
 // 화살표 아이콘 컴포넌트들
-function PrevIcon({ disabled = false }: { disabled?: boolean }) {
+function PrevIcon({ disabled = false, size = 'medium' }: { disabled?: boolean; size?: PaginationSize }) {
+  const iconSize = size === 'small' ? 12 : size === 'medium' ? 16 : 20;
+  
   return (
     <Image
       src={disabled ? "/icons/leftdisabled_outline_light_m.svg" : "/icons/leftenable_outline_light_m.svg"}
-      alt="이전 페이지"
-      width={24}
-      height={24}
+      alt="이전 페이지 그룹"
+      width={iconSize}
+      height={iconSize}
     />
   );
 }
 
-function NextIcon({ disabled = false }: { disabled?: boolean }) {
+function NextIcon({ disabled = false, size = 'medium' }: { disabled?: boolean; size?: PaginationSize }) {
+  const iconSize = size === 'small' ? 12 : size === 'medium' ? 16 : 20;
+  
   return (
     <Image
       src={disabled ? "/icons/rightdisabled_outline_light_m.svg" : "/icons/rightenable_outline_light_m.svg"}
-      alt="다음 페이지"
-      width={24}
-      height={24}
+      alt="다음 페이지 그룹"
+      width={iconSize}
+      height={iconSize}
     />
   );
 }
@@ -92,8 +95,14 @@ export default function Pagination({
   className
 }: PaginationProps) {
   const pageRange = getPageRange(currentPage, totalPages, maxVisiblePages);
-  const canGoPrev = currentPage > 1;
-  const canGoNext = currentPage < totalPages;
+  const { start } = getPageGroup(currentPage, maxVisiblePages);
+  
+  // 이전/다음 그룹으로 이동 가능 여부
+  const canGoPrevGroup = start > 1;
+  const canGoNextGroup = start + maxVisiblePages - 1 < totalPages;
+  
+  // 화살표 표시 여부 (총 페이지가 1페이지일 때는 숨김)
+  const shouldShowArrows = totalPages > 1 && showPrevNext;
 
   const handlePageClick = (page: number) => {
     if (page !== currentPage && onPageChange) {
@@ -101,29 +110,33 @@ export default function Pagination({
     }
   };
 
-  const handlePrevClick = () => {
-    if (canGoPrev && onPageChange) {
-      onPageChange(currentPage - 1);
+  const handlePrevGroupClick = () => {
+    if (canGoPrevGroup && onPageChange) {
+      // 이전 그룹의 마지막 페이지로 이동
+      const prevGroupEnd = start - 1;
+      onPageChange(prevGroupEnd);
     }
   };
 
-  const handleNextClick = () => {
-    if (canGoNext && onPageChange) {
-      onPageChange(currentPage + 1);
+  const handleNextGroupClick = () => {
+    if (canGoNextGroup && onPageChange) {
+      // 다음 그룹의 첫 페이지로 이동
+      const nextGroupStart = start + maxVisiblePages;
+      onPageChange(nextGroupStart);
     }
   };
 
   return (
     <div className={getPaginationClasses(variant, size, theme, className)}>
-      {/* 이전 버튼 */}
-      {showPrevNext && (
+      {/* 이전 그룹 버튼 */}
+      {shouldShowArrows && (
         <button
-          className={`${styles.navButton} ${!canGoPrev ? styles.disabled : ''}`}
-          onClick={handlePrevClick}
-          disabled={!canGoPrev}
-          aria-label="이전 페이지"
+          className={`${styles.navButton} ${!canGoPrevGroup ? styles.disabled : ''}`}
+          onClick={handlePrevGroupClick}
+          disabled={!canGoPrevGroup}
+          aria-label="이전 페이지 그룹"
         >
-          <PrevIcon disabled={!canGoPrev} />
+          <PrevIcon disabled={!canGoPrevGroup} size={size} />
         </button>
       )}
 
@@ -142,15 +155,15 @@ export default function Pagination({
         ))}
       </div>
 
-      {/* 다음 버튼 */}
-      {showPrevNext && (
+      {/* 다음 그룹 버튼 */}
+      {shouldShowArrows && (
         <button
-          className={`${styles.navButton} ${!canGoNext ? styles.disabled : ''}`}
-          onClick={handleNextClick}
-          disabled={!canGoNext}
-          aria-label="다음 페이지"
+          className={`${styles.navButton} ${!canGoNextGroup ? styles.disabled : ''}`}
+          onClick={handleNextGroupClick}
+          disabled={!canGoNextGroup}
+          aria-label="다음 페이지 그룹"
         >
-          <NextIcon disabled={!canGoNext} />
+          <NextIcon disabled={!canGoNextGroup} size={size} />
         </button>
       )}
     </div>

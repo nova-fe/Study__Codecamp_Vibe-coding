@@ -691,3 +691,93 @@ export const EdgeCases: Story = {
     },
   },
 };
+
+// 5페이지 단위 그룹 이동 테스트
+export const GroupNavigation: Story = {
+  render: () => {
+    const [group1Page, setGroup1Page] = useState(3);
+    const [group2Page, setGroup2Page] = useState(7);
+    const [group3Page, setGroup3Page] = useState(13);
+    
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <div>
+          <h3 style={{ marginBottom: '16px', fontSize: '18px', fontWeight: 'bold' }}>첫 번째 그룹 (1-5페이지)</h3>
+          <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+            <p style={{ marginBottom: '16px', color: '#666', fontSize: '14px' }}>
+              현재 페이지: {group1Page} | 화살표 클릭 시 5페이지 단위로 이동
+            </p>
+            <Pagination 
+              currentPage={group1Page} 
+              totalPages={25} 
+              onPageChange={setGroup1Page}
+            />
+          </div>
+        </div>
+        
+        <div>
+          <h3 style={{ marginBottom: '16px', fontSize: '18px', fontWeight: 'bold' }}>두 번째 그룹 (6-10페이지)</h3>
+          <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+            <p style={{ marginBottom: '16px', color: '#666', fontSize: '14px' }}>
+              현재 페이지: {group2Page} | 이전 화살표로 1-5페이지, 다음 화살표로 11-15페이지로 이동
+            </p>
+            <Pagination 
+              currentPage={group2Page} 
+              totalPages={25} 
+              onPageChange={setGroup2Page}
+            />
+          </div>
+        </div>
+        
+        <div>
+          <h3 style={{ marginBottom: '16px', fontSize: '18px', fontWeight: 'bold' }}>세 번째 그룹 (11-15페이지)</h3>
+          <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+            <p style={{ marginBottom: '16px', color: '#666', fontSize: '14px' }}>
+              현재 페이지: {group3Page} | 이전 화살표로 6-10페이지, 다음 화살표로 16-20페이지로 이동
+            </p>
+            <Pagination 
+              currentPage={group3Page} 
+              totalPages={25} 
+              onPageChange={setGroup3Page}
+            />
+          </div>
+        </div>
+        
+        <div>
+          <h3 style={{ marginBottom: '16px', fontSize: '18px', fontWeight: 'bold' }}>마지막 그룹 (21-25페이지)</h3>
+          <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+            <p style={{ marginBottom: '16px', color: '#666', fontSize: '14px' }}>
+              현재 페이지: 23 | 마지막 그룹에서는 다음 화살표가 비활성화됨
+            </p>
+            <Pagination 
+              currentPage={23} 
+              totalPages={25} 
+              onPageChange={() => {}}
+            />
+          </div>
+        </div>
+        
+        <div>
+          <h3 style={{ marginBottom: '16px', fontSize: '18px', fontWeight: 'bold' }}>단일 페이지 (화살표 숨김)</h3>
+          <div style={{ textAlign: 'center', padding: '20px', backgroundColor: '#f8f9fa', borderRadius: '8px' }}>
+            <p style={{ marginBottom: '16px', color: '#666', fontSize: '14px' }}>
+              총 페이지가 1일 때는 화살표가 표시되지 않음
+            </p>
+            <Pagination 
+              currentPage={1} 
+              totalPages={1}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  },
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        story: '5페이지 단위 그룹 이동 기능을 테스트할 수 있는 스토리입니다. 화살표 클릭 시 5페이지 단위로 이동하며, 총 페이지가 1일 때는 화살표가 숨겨집니다.',
+      },
+    },
+  },
+};
